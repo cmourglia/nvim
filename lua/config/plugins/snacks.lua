@@ -27,27 +27,13 @@ return {
     },
   },
   keys = {
-    -- Top Pickers & Explorer
-    {
-      '<leader><space>',
-      function()
-        Snacks.picker.smart()
-      end,
-      desc = 'Smart Find Files',
-    },
+    -- Top-level utilities
     {
       '<leader>,',
       function()
         Snacks.picker.buffers()
       end,
       desc = 'Buffers',
-    },
-    {
-      '<leader>/',
-      function()
-        Snacks.picker.grep()
-      end,
-      desc = 'Grep',
     },
     {
       '<leader>:',
@@ -69,49 +55,6 @@ return {
         Snacks.explorer()
       end,
       desc = 'File Explorer',
-    },
-    -- find
-    {
-      '<leader>fb',
-      function()
-        Snacks.picker.buffers()
-      end,
-      desc = 'Buffers',
-    },
-    {
-      '<leader>fc',
-      function()
-        Snacks.picker.files { cwd = vim.fn.stdpath 'config' }
-      end,
-      desc = 'Find Config File',
-    },
-    {
-      '<leader>ff',
-      function()
-        Snacks.picker.files()
-      end,
-      desc = 'Find Files',
-    },
-    {
-      '<leader>fg',
-      function()
-        Snacks.picker.git_files()
-      end,
-      desc = 'Find Git Files',
-    },
-    {
-      '<leader>fp',
-      function()
-        Snacks.picker.projects()
-      end,
-      desc = 'Projects',
-    },
-    {
-      '<leader>fr',
-      function()
-        Snacks.picker.recent()
-      end,
-      desc = 'Recent',
     },
     -- git
     {
@@ -163,7 +106,42 @@ return {
       end,
       desc = 'Git Log File',
     },
-    -- Grep
+    -- Search
+    {
+      '<leader>sf',
+      function()
+        Snacks.picker.files()
+      end,
+      desc = 'Files',
+    },
+    {
+      '<leader>sF',
+      function()
+        Snacks.picker.git_files()
+      end,
+      desc = 'Git Files',
+    },
+    {
+      '<leader>sn',
+      function()
+        Snacks.picker.files { cwd = vim.fn.stdpath 'config' }
+      end,
+      desc = 'Neovim Config Files',
+    },
+    {
+      '<leader>sr',
+      function()
+        Snacks.picker.recent()
+      end,
+      desc = 'Recent Files',
+    },
+    {
+      '<leader>sP',
+      function()
+        Snacks.picker.projects()
+      end,
+      desc = 'Projects',
+    },
     {
       '<leader>sb',
       function()
@@ -214,13 +192,6 @@ return {
         Snacks.picker.autocmds()
       end,
       desc = 'Autocmds',
-    },
-    {
-      '<leader>sb',
-      function()
-        Snacks.picker.lines()
-      end,
-      desc = 'Buffer Lines',
     },
     {
       '<leader>sc',

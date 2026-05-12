@@ -1,55 +1,29 @@
---
-vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Clear search highlight' })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic quickfix list' })
+vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Open netrw' })
 
--- Yank to clipboard
-vim.keymap.set('n', '<leader>y', '"+y')
-vim.keymap.set('v', '<leader>y', '"+y')
-vim.keymap.set('n', '<leader>Y', '"+Y')
+vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y', { desc = 'Yank to clipboard' })
+vim.keymap.set('n', '<leader>Y', '"+Y', { desc = 'Yank line to clipboard' })
+vim.keymap.set({ 'n', 'v' }, '<leader>d', '"_d', { desc = 'Delete without yanking' })
+vim.keymap.set('x', '<leader>p', '"_dP', { desc = 'Paste without yanking replaced text' })
 
--- Delete to void
-vim.keymap.set('n', '<leader>d', '"_d')
-vim.keymap.set('v', '<leader>d', '"_d')
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll down and center' })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Scroll up and center' })
+vim.keymap.set('n', 'n', 'nzzzv', { desc = 'Next search result and center' })
+vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'Previous search result and center' })
 
--- Move selected line up and down
--- vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
--- vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move to left window' })
+vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move to right window' })
+vim.keymap.set('n', '<C-k>', '<cmd>cnext<CR>zz', { desc = 'Next quickfix item' })
+vim.keymap.set('n', '<C-j>', '<cmd>cprev<CR>zz', { desc = 'Previous quickfix item' })
+vim.keymap.set('n', '<leader>k', '<cmd>lnext<CR>zz', { desc = 'Next location item' })
+vim.keymap.set('n', '<leader>j', '<cmd>lprev<CR>zz', { desc = 'Previous location item' })
 
--- TODO: Add UndoTree plugin
--- vim.keymap.set('n', '<leader>u', ':UndotreeShow<CR>')
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
--- When navigating with C-d and C-u, keep the curson in the middle of the buffer
-vim.keymap.set('n', '<C-d>', '<C-d>zz')
-vim.keymap.set('n', '<C-u>', '<C-u>zz')
+vim.keymap.set('n', '<C-s>', '<cmd>w<CR>', { desc = 'Save file' })
+vim.keymap.set('i', '<C-s>', '<Esc><cmd>w<CR>a', { desc = 'Save file' })
 
--- When navigating the search, keep the curson in the middle of the buffer
-vim.keymap.set('n', 'n', 'nzzzv')
-vim.keymap.set('n', 'N', 'Nzzzv')
-
--- When pasting over some selected text, keep the yanked data
--- in the paste buffer, instead of relacing with the pasted-on data
-vim.keymap.set('x', '<leader>p', '"_dP')
-
--- Reformat
--- vim.keymap.set('n', '<leader>f', function()
---vim.lsp.buf.format()
---end)
-
--- Quickfix navigation
-vim.keymap.set('n', '<C-k>', '<cmd>cnext<CR>zz')
-vim.keymap.set('n', '<C-j>', '<cmd>cprev<CR>zz')
-vim.keymap.set('n', '<leader>k', '<cmd>lnext<CR>zz')
-vim.keymap.set('n', '<leader>j', '<cmd>lprev<CR>zz')
-
--- Search and replace the word under the cursor
--- TODO: Find a keybind
--- vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
--- Escape terminal easier
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
-
-vim.keymap.set('n', '<C-s>', ':w<CR>')
-vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>a')
-
--- Toggle between header and source file
-vim.keymap.set('n', '<M-o>', '<cmd>ClangdSwitchSourceHeader<CR>')
-vim.keymap.set('i', '<M-o>', '<ESC><cmd>ClangdSwitchSourceHeader<CR>')
+vim.keymap.set('n', '<M-o>', '<cmd>ClangdSwitchSourceHeader<CR>', { desc = 'Switch C/C++ source header' })
+vim.keymap.set('i', '<M-o>', '<Esc><cmd>ClangdSwitchSourceHeader<CR>', { desc = 'Switch C/C++ source header' })
