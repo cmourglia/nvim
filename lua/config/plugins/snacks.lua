@@ -110,7 +110,7 @@ return {
     {
       '<leader>sf',
       function()
-        Snacks.picker.files()
+        Snacks.picker.files { hidden = true }
       end,
       desc = 'Files',
     },
@@ -124,7 +124,7 @@ return {
     {
       '<leader>sn',
       function()
-        Snacks.picker.files { cwd = vim.fn.stdpath 'config' }
+        Snacks.picker.files { cwd = vim.fn.stdpath 'config', hidden = true }
       end,
       desc = 'Neovim Config Files',
     },
