@@ -281,9 +281,26 @@ require('lazy').setup({
     'catppuccin/nvim',
     name = 'catppuccin',
     priority = 1000,
+    dependencies = {
+      { 'rose-pine/neovim', name = 'rose-pine' },
+    },
     config = function()
-      vim.cmd.colorscheme 'catppuccin-frappe'
-      vim.cmd.hi 'Comment gui=none'
+      local function set_colorscheme()
+        if vim.o.background == 'light' then
+          vim.cmd.colorscheme 'rose-pine-dawn'
+        else
+          vim.cmd.colorscheme 'catppuccin-frappe'
+        end
+
+        vim.cmd.hi 'Comment gui=none'
+      end
+
+      set_colorscheme()
+
+      vim.api.nvim_create_autocmd('OptionSet', {
+        pattern = 'background',
+        callback = set_colorscheme,
+      })
     end,
   },
 
