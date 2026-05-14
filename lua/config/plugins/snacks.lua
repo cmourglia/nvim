@@ -115,6 +115,13 @@ return {
       desc = 'Files',
     },
     {
+      '<C-p>',
+      function()
+        Snacks.picker.files { hidden = true }
+      end,
+      desc = 'Find Files',
+    },
+    {
       '<leader>sF',
       function()
         Snacks.picker.git_files()

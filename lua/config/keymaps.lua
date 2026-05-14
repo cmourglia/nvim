@@ -30,5 +30,8 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 vim.keymap.set('n', '<C-s>', '<cmd>w<CR>', { desc = 'Save file' })
 vim.keymap.set('i', '<C-s>', '<Esc><cmd>w<CR>a', { desc = 'Save file' })
 
+vim.keymap.set('n', '<S-h>', '<cmd>bprevious<CR>', { desc = 'Previous buffer' })
+vim.keymap.set('n', '<S-l>', '<cmd>bnext<CR>', { desc = 'Next buffer' })
+
 vim.keymap.set('n', '<M-o>', '<cmd>ClangdSwitchSourceHeader<CR>', { desc = 'Switch C/C++ source header' })
 vim.keymap.set('i', '<M-o>', '<Esc><cmd>ClangdSwitchSourceHeader<CR>', { desc = 'Switch C/C++ source header' })
