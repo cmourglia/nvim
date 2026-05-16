@@ -1,5 +1,13 @@
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Clear search highlight' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic quickfix list' })
+vim.keymap.set('n', '<leader>ce', function()
+  vim.diagnostic.open_float(nil, {
+    border = 'rounded',
+    focus = false,
+    scope = 'cursor',
+    source = 'if_many',
+  })
+end, { desc = 'Show cursor diagnostic' })
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Open netrw' })
 
 vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y', { desc = 'Yank to clipboard' })
