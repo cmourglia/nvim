@@ -195,6 +195,14 @@ require('lazy').setup({
       local servers = {
         clangd = {},
         rust_analyzer = {},
+        wgsl_analyzer = {},
+        ols = {
+          mason = false,
+          cmd = { '/opt/homebrew/bin/ols' },
+          settings = {
+            odin_command = '/opt/homebrew/bin/odin',
+          },
+        },
         lua_ls = {
           settings = {
             Lua = {
